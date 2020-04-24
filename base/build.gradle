@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    /*状态栏*/
+    api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
+
+
+    /*注解框架*/
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+
+    /**
+     * EventBus
+     */
+    api 'org.greenrobot:eventbus:3.2.0'
+
+
+    /**
+     * 权限申请
+     */
+    api 'com.yanzhenjie:permission:2.0.3'
+
+    api 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    /**
+     * 多功能RecyclerView
+     */
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.3'
+
+    /**
+     * 多布局状态
+     */
+    api 'com.classic.common:multiple-status-view:1.7'
+}
